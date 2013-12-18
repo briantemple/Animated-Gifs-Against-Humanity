@@ -1,0 +1,14 @@
+== README
+
+Animated Gifs Against Humanity is a remix of the awesome Cards Against Humanity card game.
+
+== CONTACT
+
+Brian Temple <brian@briantemple.com>
+
+== LICENSE
+
+Animated Gifs Against Humanity is released under the Creative Commans BY-NC-SA 2.0 license.
+It is based on Cards against Humanity, which is released under the Creative Commans BY-NC-SA 2.0 license.
+
+See the accompanying LICENSE.html for more details.

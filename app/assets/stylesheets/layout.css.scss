@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'helvetica neue', helvetica;
+  font-weight: bold;
+}
+
+body {
+  background: #FFF;
+}
+
+#logo {
+  float: left;
+  padding: 15px 0px 15px 20px;
+}
+
+#title {
+  font-size: x-large;
+}
+
+#tagline {
+  font-size: small;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.content {
+  margin: 0px auto;
+  width: 1230px;
+}
+
+.section {
+  clear: both;
+}
+
+#main {
+  height: 809px;
+}
+
+#question {
+  background: #000;
+}
+
+.questiontext {
+  text-align: center;
+  padding: 45px 0px;
+  color: #FFF;
+  font-size: xx-large;
+}
+
+ul {
+  list-style: none;
+  display: inline-block;
+}
+
+#cards {
+  border-bottom: 1px solid #DDD;
+  padding: 10px 0px;
+
+  background: #EFF;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFF), to(#FFF));
+  background: -moz-linear-gradient(top, #FFF, #EFF);
+}
+
+.card {
+  padding: 10px 0px 20px 0px;
+  border: 1px solid #CCC;
+  background: #FFF;
+  float: left;
+  margin: 10px;
+  moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+
+  img {
+    margin: 0px 10px;
+    border: 2px solid #EEE;
+  }
+}
+
+.cardtext {
+  margin: 40px 0px 0px 0px;
+  text-align: center;
+  font-size: x-large;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  color: #FFF;
+  padding: 10px 50px;
+  font-size: x-small;
+  text-align: center;
+
+  div {
+    padding: 3px 0px;
+
+    a {
+      color: #FFF;
+    }
+  }
+}
