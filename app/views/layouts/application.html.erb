@@ -14,6 +14,14 @@
     <div id="title"><span class="strikethrough">Cards</span>Animated Gifs Against Humanity</div>
     <div id="tagline">A free party game for horrible people.</div>
   </div>
+  <div id="user">
+    <% if current_user %>
+      <img src="<%= current_user.avatar_url %>" class="avatar"/>
+      <div class="link"><%= link_to "Sign out", signout_path, id: "sign_out" %></div>
+    <% else %>
+      <div class="fb-login-button"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></div>
+    <% end %>
+  </div>
 </div>
 
 <div id="main">
