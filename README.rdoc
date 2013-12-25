@@ -5,21 +5,21 @@ Animated Gifs Against Humanity is a remix of the awesome Cards Against Humanity 
 == Installation
 
 * Install gem dependencies
-bundle install
+    bundle install
 
 * Create Facebook app to authenticate against at http://developers.facebook.com/
 
 * Update secret environment file (Facebook key/secret)
-echo "export AGAH_SECRET_KEY_BASE="`rake secret` >> agah.env
-[ Add Facebook id/secret to agah.env file ]
-. agah.env
+    echo "export AGAH_SECRET_KEY_BASE="`rake secret` >> agah.env
+    - Update Facebook id/secret to agah.env file -
+    . agah.env
 
 * Migrate and seed db
-rake db:migrate
-rake db:seed
+    rake db:migrate
+    rake db:seed<
 
 * Start server
-rails s
+    rails s
 
 == CONTACT
 
@@ -28,6 +28,7 @@ Brian Temple <brian@briantemple.com>
 == LICENSE
 
 Animated Gifs Against Humanity is released under the Creative Commans BY-NC-SA 2.0 license.
+
 It is based on Cards Against Humanity, which is released under the Creative Commans BY-NC-SA 2.0 license.
 
 See the accompanying LICENSE.html for more details.
