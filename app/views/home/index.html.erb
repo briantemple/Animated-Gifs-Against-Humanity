@@ -1,0 +1,20 @@
+<div id="question" class="section">
+  <div class="content">
+    <div class="questiontext"><%= @question.text %></div>
+  </div>
+</div>
+<div id="cards" class="section">
+  <div class="content">
+    <% @answers.each_slice(5) do |slice| %>
+      <div class="row">
+        <% slice.each do |answer| %>
+        <div class="card">
+          <img src="<%= answer.url %>" alt="<%= answer.text %>">
+          <div class="cardtext"><%= answer.text %></div>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">&nbsp;</div>
+</div>

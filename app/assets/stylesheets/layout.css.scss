@@ -5,6 +5,17 @@
   font-weight: bold;
 }
 
+html, body, #container {
+  height: 100%;
+  min-width: 1235px;
+  width: 100%;
+}
+
+#container {
+  height: auto;
+  min-height: 100%;
+}
+
 body {
   background: #FFF;
 }
@@ -28,7 +39,7 @@ body {
 
 .content {
   margin: 0px auto;
-  width: 1230px;
+  width: 1235px;
 }
 
 .section {
@@ -37,6 +48,7 @@ body {
 
 #main {
   height: 809px;
+  clear: both;
 }
 
 #question {
@@ -62,6 +74,10 @@ ul {
   background: #EFF;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFF), to(#FFF));
   background: -moz-linear-gradient(top, #FFF, #EFF);
+
+  .row {
+    clear: both;
+  }
 }
 
 .card {
@@ -69,27 +85,32 @@ ul {
   border: 1px solid #CCC;
   background: #FFF;
   float: left;
+  clear: top;
   margin: 10px;
   moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
+  width: 220px;
 
   img {
     margin: 0px 10px;
     border: 2px solid #EEE;
   }
-}
 
-.cardtext {
-  margin: 40px 0px 0px 0px;
-  text-align: center;
-  font-size: x-large;
+  .cardtext {
+    text-align: center;
+    font-size: x-large;
+    padding: 0px auto;
+    width: 200px;
+  }
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 100px;
+  margin-top: -130px;
   background: #000;
   color: #FFF;
   padding: 10px 50px;
