@@ -27,8 +27,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Use Facebook authentication
+# Use Facebook
 gem 'omniauth-facebook', '1.4.0'
+gem 'koala'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

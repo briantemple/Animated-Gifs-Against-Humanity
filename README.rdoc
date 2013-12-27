@@ -11,12 +11,12 @@ Animated Gifs Against Humanity is a remix of the awesome Cards Against Humanity 
 
 * Update secret environment file (Facebook key/secret)
     echo "export AGAH_SECRET_KEY_BASE="`rake secret` >> agah.env
-    - Update Facebook id/secret to agah.env file -
+    - Update Facebook id/secret in agah.env file -
     . agah.env
 
 * Migrate and seed db
     rake db:migrate
-    rake db:seed<
+    rake db:seed
 
 * Start server
     rails s

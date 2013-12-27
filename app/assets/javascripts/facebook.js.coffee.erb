@@ -9,6 +9,10 @@ jQuery ->
 window.fbAsyncInit = ->
   FB.init(appId: '<%= ENV["AGAH_APP_ID"] %>', cookie: true)
 
+  if $('#sign_out').length > 0
+    FB.getLoginStatus (response) ->
+      window.location = $('#sign_out').attr("href") if !response.authResponse
+
   $('#sign_in').click (e) ->
     e.preventDefault()
     FB.login (response) ->

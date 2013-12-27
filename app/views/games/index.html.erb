@@ -1,0 +1,15 @@
+<h2>Current games</h2>
+<ul>
+<% @games.each do |game| %>
+  <li><a href="<%= url_for(game) %>">
+  <% game.users.each do |user| %>
+    <img class="avatar" src="<%= user.avatar_url %>" alt="<%= user.name %>"/>
+  <% end %>
+  </a></li>
+<% end %>
+</ul>
+
+<a href="#" id="newgame" class="button">New game</a>
+<script>
+  friends=<%= raw @friends.to_json %>
+</script>

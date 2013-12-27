@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :games
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -9,5 +11,29 @@ class User < ActiveRecord::Base
       user.avatar_url = auth.info.image
       user.save!
     end
+  end
+
+  def self.from_stub(stub)
+    where(:uid => stub[:id]).first_or_initialize.tap do |user|
+      if user.new_record?
+        user.provider = 'facebook'
+        user.uid = stub[:id]
+        user.name = stub[:name]
+        user.avatar_url = stub[:picture][:data][:url]
+        user.save!
+      end
+    end
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil
+  end
+
+  def friends
+    facebook { |fb| fb.get_connections("me", "friends?fields=id,name,picture.type(square)") }
   end
 end

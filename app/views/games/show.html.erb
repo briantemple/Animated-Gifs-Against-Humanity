@@ -1,0 +1,3 @@
+<% @game.rounds.each do |round| %>
+  <%= link_to round.question.text, game_round_path(@game, round) %>
+<% end %>
