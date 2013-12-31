@@ -6,10 +6,12 @@ class GamesController < ApplicationController
     @friends = current_user.friends
   end
 
-  def new
+  def create
     users = [current_user]
-    params[:users].each do |user|
-      users << User.from_stub(user)
+    friends = current_user.friends
+
+    JSON.parse(params[:users]).each do |user|
+      users << User.from_uid(user, friends)
     end
 
     redirect_to Game.create(users: users)

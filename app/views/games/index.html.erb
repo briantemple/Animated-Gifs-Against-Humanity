@@ -1,15 +1,30 @@
+<div class="content">
 <h2>Current games</h2>
-<ul>
-<% @games.each do |game| %>
-  <li><a href="<%= url_for(game) %>">
+<ul class="gamelist">
+<% @games.each_with_index do |game, idx| %>
+  <li><%= link_to game do %>
+  <div>Round <%= game.rounds.count %></div>
   <% game.users.each do |user| %>
     <img class="avatar" src="<%= user.avatar_url %>" alt="<%= user.name %>"/>
   <% end %>
-  </a></li>
+  <% end %></li>
 <% end %>
 </ul>
 
 <a href="#" id="newgame" class="button">New game</a>
-<script>
-  friends=<%= raw @friends.to_json %>
-</script>
+
+<%= form_tag('/games', method: 'post', id:'gameform', style:'display:none') do %>
+  <input type="hidden" name="users" id="users"/>
+  <select multiple class="chosen" style="width:350px;" data-placeholder="Which friends do you want to play with?" id="userlist">
+    <% unless @friends.nil? %>
+      <% @friends.each do |friend| %>
+      <option value="<%= friend["id"] %>" data-avatar="<%= friend["picture"]["data"]["url"]%>"><%= friend["name"] %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <a href="#" id="creategame" class="button">New game</a>
+<% end %>
+
+<script>forceFacebookLogout=<%= @friends.nil? %></script>
+</div>

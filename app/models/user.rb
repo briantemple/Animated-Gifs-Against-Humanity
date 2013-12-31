@@ -13,13 +13,14 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.from_stub(stub)
-    where(:uid => stub[:id]).first_or_initialize.tap do |user|
+  def self.from_uid(uid, friends)
+    where(:uid => uid).first_or_initialize.tap do |user|
       if user.new_record?
+        friend_stub = friends.find {|friend| friend['id'] == uid}
         user.provider = 'facebook'
-        user.uid = stub[:id]
-        user.name = stub[:name]
-        user.avatar_url = stub[:picture][:data][:url]
+        user.uid = friend_stub['id']
+        user.name = friend_stub['name']
+        user.avatar_url = friend_stub['picture']['data']['url']
         user.save!
       end
     end
