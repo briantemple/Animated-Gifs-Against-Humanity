@@ -1,6 +1,8 @@
 Agah::Application.routes.draw do
   resources :games do
-    resources :rounds
+    resources :rounds do
+      resources :responses
+    end
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

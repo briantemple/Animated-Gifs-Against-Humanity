@@ -5,8 +5,17 @@ class Hand < ActiveRecord::Base
 
   before_create :build_dependencies
 
+  def remove_and_pick_new(answer)
+    self.answers.delete(answer)
+    self.answers << draw_answers(1)
+  end
+
   private
   def build_dependencies
+    self.answers = draw_answers(10)
+  end
+
+  def draw_answers(num_answers)
 
     used_answers = []
     self.game.hands.each do |hand|
@@ -15,8 +24,8 @@ class Hand < ActiveRecord::Base
       end
     end
 
-    # Start with just 10 random
-    # self.answers = Answer.where.not(id: used_answers).order("RAND(id)").limit(10)
-    self.answers = Answer.where.not(id: used_answers).sample(10)
+    # Answer.where.not(id: used_answers).order("RAND(id)").limit(num_answers)
+    Answer.where.not(id: used_answers).sample(num_answers)
   end
+
 end

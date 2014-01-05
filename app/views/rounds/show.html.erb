@@ -3,12 +3,17 @@
     <div class="questiontext"><%= @round.question.text %></div>
   </div>
 </div>
+
+<%= form_tag("/games/#{@round.game.id}/rounds/#{@round.id}/responses", method: 'post', id:'responseform', style:'display:none') do %>
+  <input type="hidden" name="answer_id" id="answer_id"/>
+ <% end %>
+
 <div id="cards" class="section">
   <div class="content">
     <% @hand.answers.each_slice(5) do |slice| %>
       <div class="row">
         <% slice.each do |answer| %>
-          <div class="card">
+          <div class="card" id="<%= answer.id %>">
             <img src="<%= answer.url %>" alt="<%= answer.text %>">
             <div class="cardtext"><%= answer.text %></div>
           </div>

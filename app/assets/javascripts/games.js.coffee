@@ -1,5 +1,6 @@
-$ ->
-  window.location = $('#sign_out').attr("href") if (forceFacebookLogout == true)
+ready = ->
+  if ('undefined' != typeof forceFacebookLogout)
+    window.location = $('#sign_out').attr("href") if (forceFacebookLogout == true)
 
   $('#newgame').click ->
     $('#gameform').show()
@@ -13,3 +14,6 @@ $ ->
     $('#users').val(JSON.stringify($('#userlist').val()))
     $('#gameform').submit()
     false
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
